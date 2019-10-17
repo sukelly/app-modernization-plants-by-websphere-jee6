@@ -57,7 +57,7 @@ pipeline {
                                           passwordVariable: 'PASSWORD')]) {
                  sh """
                  #!/bin/bash
-                 sudo docker login -u ${USERNAME} -p ${PASSWORD} ${env.REGISTRY_URL}/${env.REGISTRY_NS}/pbw-mariadb-web
+                 sudo docker login -u ${USERNAME} -p ${PASSWORD} ${env.REGISTRY_URL}/${env.REGISTRY_NS}/pbw-mariadb-web:${env.MAJOR_PREFIX}.${env.BUILD_NUMBER}
                  sudo docker push ${env.REGISTRY_URL}/${env.REGISTRY_NS}/pbw-mariadb-web:${env.MAJOR_PREFIX}.${env.BUILD_NUMBER}
                  """
              }
